@@ -1,27 +1,33 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { businessInfo, navItems } from "../../../content/data";
-
-const WHATSAPP_URL = `https://wa.me/${
-  businessInfo.whatsapp
-}?text=${encodeURIComponent(
-  "Hola, quiero consultar por productos o encargos de Panadería Santa Inés."
-)}`;
+import { WHATSAPP_URL } from "../../../lib/constants";
+import { useScrolled } from "../../../hooks/useScrolled";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const scrolled = useScrolled();
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    const target = document.getElementById(href.slice(1));
+
+    target?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+    useEffect(() => {
+      const onKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          setMenuOpen(false);
+        }
+      };
+
+      window.addEventListener("keydown", onKeyDown);
+
+      return () => window.removeEventListener("keydown", onKeyDown);
+    }, []);
   };
 
   return (
@@ -68,6 +74,7 @@ export function Navbar() {
           {/* Logo */}
           <a
             href="#inicio"
+            aria-label="Ir al inicio"
             onClick={() => handleNavClick("#inicio")}
             className="flex items-center gap-3 leading-tight select-none"
           >
@@ -108,7 +115,10 @@ export function Navbar() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav
+            className="hidden md:flex items-center gap-6"
+            aria-label="Navegación principal"
+          >
             {navItems.map((item) => (
               <button
                 key={item.href}
@@ -150,7 +160,9 @@ export function Navbar() {
               className="md:hidden p-2 rounded-lg transition-colors"
               style={{ color: "#2B211B" }}
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menú"
+              aria-label="Abrir menú"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -160,6 +172,7 @@ export function Navbar() {
         {/* Mobile menu */}
         {menuOpen && (
           <div
+            id="mobile-menu"
             className="md:hidden border-t"
             style={{
               backgroundColor: "#FFFCF7",
