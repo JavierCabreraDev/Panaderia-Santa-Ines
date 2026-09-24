@@ -500,4 +500,9 @@ export const figuresRain = {
       overlay: true,
     },
   },
+  floatingCard: {
+    title: "Horneado cada mañana",
+    subtitle: "Desde las 7:15 a.m.",
+    emoji: "🌾",
+  },
 };

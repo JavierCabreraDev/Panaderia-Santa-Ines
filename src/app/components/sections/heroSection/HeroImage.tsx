@@ -6,11 +6,20 @@ export function HeroImage() {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
+      animate={{
+        opacity: 1,
+        y: [0, -2, 0],
+      }}
       transition={{
-        duration: 0.8,
-        delay: 0.15,
-        ease: "easeOut",
+        opacity: {
+          duration: 0.6,
+          delay: 0.5,
+        },
+        y: {
+          duration: 3.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
       }}
       className="relative"
     >
