@@ -20,8 +20,9 @@ export function HeroImage() {
       >
         <ImageWithFallback
           src={hero.image}
-          alt="Pan recién horneado en Panadería Santa Inés"
-          className="h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
 
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />

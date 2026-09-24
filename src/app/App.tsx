@@ -2,7 +2,7 @@ import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { WhatsAppButton } from "./components/layout/WhatsAppButton";
 
-import { Hero } from "./components/sections/Hero";
+import { Hero } from "./components/sections/heroSection/Hero";
 import { BusinessHighlights } from "./components/sections/BusinessHighlights";
 import { FeaturedProducts } from "./components/sections/FeaturedProducts";
 import { DailyFresh } from "./components/sections/DailyFresh";
