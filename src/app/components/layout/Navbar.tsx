@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MapPin } from "lucide-react";
+
 import { businessInfo, navItems } from "../../../content/data";
 import { WHATSAPP_URL } from "../../../lib/constants";
 import { useScrolled } from "../../../hooks/useScrolled";
+
+import { TopBar } from "./TopBar";
+import { Logo } from "./Logo";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,31 +36,7 @@ export function Navbar() {
 
   return (
     <>
-      {/* Top bar */}
-      <div style={{ backgroundColor: "#2B211B" }} className="hidden md:block">
-        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <a
-              href={`tel:${businessInfo.phone}`}
-              className="flex items-center gap-1.5 text-xs transition-opacity hover:opacity-80"
-              style={{ color: "#C99648" }}
-            >
-              <Phone size={12} />
-              <span style={{ color: "#F3E8D2" }}>{businessInfo.phone}</span>
-            </a>
-            <div
-              className="flex items-center gap-1.5 text-xs"
-              style={{ color: "#F3E8D2" }}
-            >
-              <MapPin size={12} style={{ color: "#C99648" }} />
-              <span>{businessInfo.address}</span>
-            </div>
-          </div>
-          <div className="text-xs" style={{ color: "#8A5A3B" }}>
-            Lun – Sáb &nbsp;7:15 – 13:00 &nbsp;|&nbsp; 15:30 – 19:00
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
       {/* Main navbar */}
       <header
@@ -72,47 +52,7 @@ export function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#inicio"
-            aria-label="Ir al inicio"
-            onClick={() => handleNavClick("#inicio")}
-            className="flex items-center gap-3 leading-tight select-none"
-          >
-            <img
-              src="/images/brand/iso-sbg.png"
-              alt="Iso Santa Inés"
-              className="h-12 w-12 object-contain"
-            />
-
-            <div className="flex flex-col">
-              <span
-                className="tracking-wide"
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: "1.15rem",
-                  fontWeight: 700,
-                  color: "#2B211B",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                Santa Inés
-              </span>
-
-              <span
-                className="tracking-widest"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.6rem",
-                  fontWeight: 500,
-                  color: "#8A5A3B",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Panadería · Huasco
-              </span>
-            </div>
-          </a>
+          <Logo onClick={() => handleNavClick("#inicio")} />
 
           {/* Desktop nav */}
           <nav
