@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-import { businessInfo, navItems } from "../../../content/data";
+import { navItems } from "../../../content/data";
 
 import { WHATSAPP_URL } from "../../../lib/constants";
 import { cn } from "../../../lib/cn";
