@@ -5,6 +5,7 @@ import { businessInfo, navItems } from "../../../content/data";
 
 import { WHATSAPP_URL } from "../../../lib/constants";
 import { cn } from "../../../lib/cn";
+import { MobileMenu } from "./MobileMenu";
 
 import { useScrolled } from "../../../hooks/useScrolled";
 import { useScrollSpy } from "../../../hooks/useScrollSpy";
@@ -75,7 +76,7 @@ export function Navbar() {
             </a>
 
             <button
-              className="md:hidden rounded-lg p-2 text-primary transition-colors"
+              className="rounded-lg p-2 text-primary transition-all duration-200 md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={menuOpen}
@@ -87,48 +88,12 @@ export function Navbar() {
         </div>
 
         {menuOpen && (
-          <div
-            id="mobile-menu"
-            className="md:hidden border-t bg-surface"
-            style={{
-              borderColor: "rgba(139,90,59,0.12)",
-            }}
-          >
-            <div className="max-w-6xl mx-auto flex flex-col gap-1 px-6 py-4">
-              <NavLinks
-                mobile
-                onNavigate={handleNavClick}
-                activeId={activeId}
-              />
-
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-primary py-3 text-sm font-medium text-cream transition-all"
-              >
-                Encargar por WhatsApp
-              </a>
-
-              <div
-                className="mt-3 flex flex-col gap-2 border-t pt-3"
-                style={{
-                  borderColor: "rgba(139,90,59,0.12)",
-                }}
-              >
-                <div className="flex items-center gap-2 text-xs text-[#5E5148]">
-                  <Phone size={12} className="text-accent" />
-                  {businessInfo.phone}
-                </div>
-
-                <div className="flex items-center gap-2 text-xs text-[#5E5148]">
-                  <MapPin size={12} className="text-accent" />
-                  {businessInfo.address}
-                </div>
-              </div>
-            </div>
-          </div>
+          <MobileMenu
+            open={menuOpen}
+            activeId={activeId}
+            onNavigate={handleNavClick}
+            onClose={() => setMenuOpen(false)}
+          />
         )}
       </header>
     </>
