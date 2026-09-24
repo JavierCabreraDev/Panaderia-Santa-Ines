@@ -19,6 +19,7 @@ export const businessInfo = {
   delivery: true,
   orders: true,
   orderAudience: "Empresas, pymes, familias y clientes particulares",
+  openingHours: "Lun a Sáb: 07:15 – 13:00 • 15:30 – 19:00 hrs",
 };
 
 export const schedule = {

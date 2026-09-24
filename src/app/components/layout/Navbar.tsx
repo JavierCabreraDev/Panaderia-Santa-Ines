@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 
-import { businessInfo, navItems } from "../../../content/data";
+import { NavLinks } from "./NavLinks";
+import { businessInfo } from "../../../content/data";
 import { WHATSAPP_URL } from "../../../lib/constants";
 import { useScrolled } from "../../../hooks/useScrolled";
 
@@ -59,24 +60,7 @@ export function Navbar() {
             className="hidden md:flex items-center gap-6"
             aria-label="Navegación principal"
           >
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className="text-sm transition-colors hover:opacity-70"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  color: "#2B211B",
-                  fontWeight: 400,
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
+            <NavLinks onNavigate={handleNavClick} />
           </nav>
 
           {/* CTA + mobile toggle */}
@@ -100,7 +84,7 @@ export function Navbar() {
               className="md:hidden p-2 rounded-lg transition-colors"
               style={{ color: "#2B211B" }}
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Abrir menú"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
             >
@@ -120,23 +104,7 @@ export function Navbar() {
             }}
           >
             <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className="text-left py-3 px-3 rounded-lg text-sm transition-colors hover:opacity-70"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    color: "#2B211B",
-                    fontWeight: 400,
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  {item.label}
-                </button>
-              ))}
+              <NavLinks mobile onNavigate={handleNavClick} />
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
