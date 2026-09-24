@@ -4,10 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#FFF8EC",
-        cream: "#FFF8EC",
-        primary: "#8B5A2B",
-        accent: "#D97706",
+        primary: "#2B211B",
+        secondary: "#8A5A3B",
+        accent: "#C99648",
+        cream: "#F3E8D2",
+        surface: "#FFFCF7",
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        display: ["Playfair Display", "Georgia", "serif"],
       },
     },
   },

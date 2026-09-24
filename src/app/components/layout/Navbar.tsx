@@ -5,6 +5,7 @@ import { NavLinks } from "./NavLinks";
 import { businessInfo } from "../../../content/data";
 import { WHATSAPP_URL } from "../../../lib/constants";
 import { useScrolled } from "../../../hooks/useScrolled";
+import { cn } from "../../../lib/cn";
 
 import { TopBar } from "./TopBar";
 import { Logo } from "./Logo";
@@ -41,15 +42,12 @@ export function Navbar() {
 
       {/* Main navbar */}
       <header
-        className="sticky top-0 z-50 transition-all duration-300"
-        style={{
-          backgroundColor: scrolled ? "rgba(255,252,247,0.96)" : "#FFFCF7",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled
-            ? "1px solid rgba(139,90,59,0.12)"
-            : "1px solid transparent",
-          boxShadow: scrolled ? "0 2px 16px rgba(43,33,27,0.06)" : "none",
-        }}
+        className={cn(
+          "sticky top-0 z-50 transition-all duration-300",
+          scrolled
+            ? "bg-surface/95 backdrop-blur-xl border-b border-primary/10 shadow-sm"
+            : "bg-surface border-b border-transparent"
+        )}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
@@ -81,8 +79,7 @@ export function Navbar() {
               Encargar
             </a>
             <button
-              className="md:hidden p-2 rounded-lg transition-colors"
-              style={{ color: "#2B211B" }}
+              className="md:hidden p-2 rounded-lg text-primary transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={menuOpen}

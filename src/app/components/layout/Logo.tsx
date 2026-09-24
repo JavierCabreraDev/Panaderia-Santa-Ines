@@ -19,30 +19,11 @@ export function Logo({ onClick }: LogoProps) {
       />
 
       <div className="flex flex-col">
-        <span
-          className="tracking-wide"
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: "1.15rem",
-            fontWeight: 700,
-            color: "#2B211B",
-            letterSpacing: "0.04em",
-          }}
-        >
+        <span className="font-display text-[1.15rem] font-bold tracking-wide text-primary">
           Santa Inés
         </span>
 
-        <span
-          className="tracking-widest"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: "0.6rem",
-            fontWeight: 500,
-            color: "#8A5A3B",
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-          }}
-        >
+        <span className="font-display text-[1.15rem] font-bold tracking-wide text-primary">
           Panadería · Huasco
         </span>
       </div>
