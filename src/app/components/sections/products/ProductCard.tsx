@@ -5,18 +5,9 @@ import { ProductBadge } from "./ProductBadge";
 import type { ProductBadgeVariant } from "./ProductBadge";
 import { Button } from "../../ui/button";
 import { theme } from "../../../../lib/theme";
-
+import type { FeaturedProduct } from "../../../../content/types";
 type ProductCardProps = {
-  product: {
-    id: string;
-    name: string;
-    category: string;
-    description: string;
-    image: string;
-    badge?: string;
-    badgeColor?: string;
-    whatsappMessage?: string;
-  };
+  product: FeaturedProduct;
   waUrl: string;
   delay?: number;
 };
