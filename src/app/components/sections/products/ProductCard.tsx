@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 
 import { ImageWithFallback } from "../../figma/ImageWithFallback";
-import { ProductBadge, ProductBadgeVariant } from "./ProductBadge";
+import { ProductBadge } from "./ProductBadge";
+import type { ProductBadgeVariant } from "./ProductBadge";
 
 type ProductCardProps = {
   product: {
@@ -11,7 +12,8 @@ type ProductCardProps = {
     description: string;
     image: string;
     badge?: string;
-    badgeColor?: ProductBadgeVariant;
+    badgeColor?: string;
+    whatsappMessage?: string;
   };
   waUrl: string;
   delay?: number;
@@ -40,7 +42,10 @@ export function ProductCard({ product, waUrl, delay = 0 }: ProductCardProps) {
 
         {product.badge && product.badgeColor && (
           <div className="absolute left-3 top-3">
-            <ProductBadge label={product.badge} variant={product.badgeColor} />
+            <ProductBadge
+              label={product.badge}
+              variant={product.badgeColor as ProductBadgeVariant}
+            />
           </div>
         )}
       </div>
