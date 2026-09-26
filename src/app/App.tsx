@@ -4,7 +4,7 @@ import { WhatsAppButton } from "./components/layout/WhatsAppButton";
 
 import { Hero } from "./components/sections/heroSection/Hero";
 import { BusinessHighlights } from "./components/sections/BusinessHighlights";
-import { FeaturedProducts } from "./components/sections/FeaturedProducts";
+import { FeaturedProducts } from "./components/sections/products/FeaturedProducts";
 import { DailyFresh } from "./components/sections/DailyFresh";
 import { OrdersCTA } from "./components/sections/OrdersCTA";
 import { OrdersForBusiness } from "./components/sections/OrdersForBusiness";

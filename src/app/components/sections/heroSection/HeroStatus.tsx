@@ -1,5 +1,3 @@
-import { businessInfo } from "../../../../content/data";
-
 export function HeroStatus() {
   return (
     <div className="inline-flex items-center gap-2 rounded-full bg-[#E8F7EC] px-3 py-1.5">
