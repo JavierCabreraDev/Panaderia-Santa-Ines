@@ -41,7 +41,7 @@ export { navItems };
 export { schedule };
 // ─── Servicios ────────────────────────────────────────────────
 // status: "active" | "comingSoon" | "hidden"
-// Para activar cafetería: cambiar "comingSoon" → "active"
+// Para activar cafetería: cambiar "comingSoon" → "ative"
 export const services = [
   {
     id: "panaderia",
