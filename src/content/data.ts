@@ -29,6 +29,36 @@ export const schedule = {
   afternoon: "3:30 p.m. – 7:00 p.m.",
   closed: "Domingos cerrado",
 };
+export const businessHighlights = [
+  {
+    icon: "Truck",
+    title: "Despacho disponible",
+    description:
+      "Pedidos con despacho para familias, empresas y pymes. Consulta disponibilidad.",
+    cta: "Consultar",
+    href: "whatsapp",
+  },
+  {
+    icon: "MessageCircle",
+    title: "Encargos por WhatsApp",
+    description:
+      "Tortas, pan, pastelería y pedidos especiales. Escríbenos con anticipación.",
+    cta: "Encargar",
+    href: "whatsapp",
+  },
+  {
+    icon: "Clock",
+    title: "Horario de atención",
+    description: `${schedule.days} · ${schedule.morning} · ${schedule.afternoon}`,
+  },
+  {
+    icon: "MapPin",
+    title: "Encuéntranos",
+    description: businessInfo.address,
+    cta: "Cómo llegar",
+    href: "maps",
+  },
+] as const;
 
 export const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -48,7 +78,7 @@ export const hero = {
   primaryHref: "#productos",
   secondaryCTA: "Encargar por WhatsApp",
   badges: ["Pan fresco", "Pastelería", "Encargos", "Despacho"],
-  image: "../images/products/all.png",
+  image: "/images/products/all.png",
 };
 
 // ─── Servicios ────────────────────────────────────────────────
@@ -166,7 +196,7 @@ export const featuredProducts = [
     badge: "Más vendido",
     badgeColor: "honey",
     price: null,
-    image: "../images/products/marraqueta.png",
+    image: "/images/products/marraqueta.png",
     whatsappMessage:
       "Hola, quiero consultar por marraquetas en Panadería Santa Inés.",
   },
@@ -180,7 +210,7 @@ export const featuredProducts = [
     badge: "Destaca",
     badgeColor: "terracotta",
     price: null,
-    image: "../images/products/ciabatta.png",
+    image: "/images/products/ciabatta.png",
     whatsappMessage:
       "Hola, quiero consultar por ciabatta en Panadería Santa Inés.",
   },
@@ -194,7 +224,7 @@ export const featuredProducts = [
     badge: "Tradicional",
     badgeColor: "cream",
     price: null,
-    image: "../images/products/hallulla.png",
+    image: "/images/products/hallulla.png",
     whatsappMessage:
       "Hola, quiero consultar por hallullas en Panadería Santa Inés.",
   },
@@ -208,7 +238,7 @@ export const featuredProducts = [
     badge: "Especial",
     badgeColor: "wood",
     price: null,
-    image: "../images/products/especial.png",
+    image: "/images/products/especial.png",
     whatsappMessage:
       "Hola, quiero consultar por el pan especial de Panadería Santa Inés.",
   },
@@ -223,7 +253,7 @@ export const featuredProducts = [
     badge: "Pastelería",
     badgeColor: "honey",
     price: null,
-    image: "../images/products/milhojas.png",
+    image: "/images/products/milhojas.png",
     whatsappMessage:
       "Hola, quiero consultar por mil hojas en Panadería Santa Inés.",
   },
@@ -251,7 +281,7 @@ export const featuredProducts = [
     badge: "Temporada",
     badgeColor: "terracotta",
     price: null,
-    image: "../images/products/ciabatta-aceituna.png",
+    image: "/images/products/ciabatta-aceituna.png",
     whatsappMessage:
       "Hola, quiero consultar por ciabatta de aceituna en Panadería Santa Inés.",
   },
@@ -277,7 +307,7 @@ export const about = {
   title: "Una panadería con historia en Huasco",
   subtitle: "Tradición que se siente, frescura que se nota.",
   text: "Santa Inés es parte de la memoria cotidiana de Huasco. Clientes de distintas generaciones recuerdan su pan, convirtiéndola en una panadería reconocida por su sabor tradicional, frescura y cercanía.\n\nDesde hace décadas, Santa Inés forma parte de la mesa de muchas familias de Huasco. Más que vender pan, somos parte de desayunos, onces, celebraciones y rutinas compartidas. Hoy nos renovamos por fuera para seguir ofreciéndote la calidad de siempre por dentro.",
-  image: "../images/pos/2026-03-23.webp",
+  image: "/images/pos/2026-03-23.webp",
   pillars: [
     {
       icon: "MapPin",
@@ -338,7 +368,7 @@ export const renovation = {
   cta: "Yo quiero probarlo",
   ctaMessage:
     "Hola, me interesa mucho la nueva experiencia de café al paso en Santa Inés. Quiero estar atento para probarlo cuando esté disponible.",
-  image: "../images/pos/afiche.png",
+  image: "/images/pos/afiche.png",
   highlights: [
     "Nueva imagen y espacio renovado",
     "Mejor experiencia para clientes",
