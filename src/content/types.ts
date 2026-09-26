@@ -14,10 +14,21 @@ export type ProductBadgeVariant =
 export interface BusinessInfo {
   name: string;
   tagline: string;
+  description: string;
+
   phone: string;
   whatsapp: string;
   address: string;
   googleMapsUrl: string;
+
+  openingHours: {
+    days: string;
+    morning: string;
+    afternoon: string;
+    closed: string;
+  };
+
+  orderAudience: string;
 }
 
 /* ---------- Schedule ---------- */

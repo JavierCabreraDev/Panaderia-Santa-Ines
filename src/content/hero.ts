@@ -1,5 +1,3 @@
-import type { HeroContent } from "./types";
-
 export const hero = {
   eyebrow: "Panadería · Pastelería · Encargos",
   title: "Santa Inés,\ntradición horneada\ncada día en Huasco",

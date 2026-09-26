@@ -1,4 +1,5 @@
 import { Phone, MapPin } from "lucide-react";
+import { theme } from "../../../lib/theme";
 import { businessInfo } from "../../../content/data";
 
 export function TopBar() {
@@ -20,8 +21,9 @@ export function TopBar() {
           </div>
         </div>
 
-        <div className="text-xs text-secondary">
-          {businessInfo.openingHours}
+        <div className="text-xs" style={{ color: theme.colors.cream }}>
+          {businessInfo.openingHours.days} · {businessInfo.openingHours.morning}{" "}
+          | {businessInfo.openingHours.afternoon}
         </div>
       </div>
     </div>
