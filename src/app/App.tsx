@@ -1,7 +1,7 @@
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { WhatsAppButton } from "./components/layout/WhatsAppButton";
-
+import { BusinessSchema } from "./components/seo/BusinessSchema";
 import { Hero } from "./components/sections/heroSection/Hero";
 import { BusinessHighlights } from "./components/sections/business-highlights/BusinessHighlights";
 import { FeaturedProducts } from "./components/sections/products/FeaturedProducts";
@@ -15,6 +15,7 @@ import { RenovationPreview } from "./components/sections/RenovationPreview";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FFF8EC] font-sans">
+      <BusinessSchema />
       <Navbar />
 
       <main className="flex-1">
