@@ -3,7 +3,7 @@ import { Footer } from "./components/layout/Footer";
 import { WhatsAppButton } from "./components/layout/WhatsAppButton";
 
 import { Hero } from "./components/sections/heroSection/Hero";
-import { BusinessHighlights } from "./components/sections/BusinessHighlights";
+import { BusinessHighlights } from "./components/sections/business-highlights/BusinessHighlights";
 import { FeaturedProducts } from "./components/sections/products/FeaturedProducts";
 import { DailyFresh } from "./components/sections/DailyFresh";
 import { OrdersCTA } from "./components/sections/OrdersCTA";

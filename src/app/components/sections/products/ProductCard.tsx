@@ -3,6 +3,8 @@ import { memo } from "react";
 import { ImageWithFallback } from "../../figma/ImageWithFallback";
 import { ProductBadge } from "./ProductBadge";
 import type { ProductBadgeVariant } from "./ProductBadge";
+import { Button } from "../../ui/button";
+import { theme } from "../../../../lib/theme";
 
 type ProductCardProps = {
   product: {
@@ -71,20 +73,18 @@ export const ProductCard = memo(function ProductCard({
           </h3>
         </div>
 
-        <p className="flex-1 text-sm leading-6 text-[#5E5148]">
+        <p
+          className="flex-1 text-sm leading-6"
+          style={{ color: theme.colors.secondary }}
+        >
           {product.description}
         </p>
 
-        <a
-          href={waUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-auto flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-medium text-cream transition-all hover:opacity-90 active:scale-95 hover:shadow-md focus-visible:ring-2
-          focus-visible:ring-[#C99648]
-          focus-visible:ring-offset-2"
-        >
-          Agregar +1
-        </a>
+        <Button asChild className="mt-auto w-full rounded-xl">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer">
+            Agregar +1
+          </a>
+        </Button>
       </div>
     </motion.article>
   );

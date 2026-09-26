@@ -2,9 +2,9 @@ import {
   businessInfo,
   businessHighlights,
   figuresRain,
-} from "../../../content/data";
-import { FiguresRain } from "../ui/FiguresRain";
-import { HighlightCard } from "./business-highlights/HighlightCard";
+} from "../../../../content/data";
+import { FiguresRain } from "../../ui/FiguresRain";
+import { HighlightCard } from "./HighlightCard";
 
 const WHATSAPP_URL = `https://wa.me/${
   businessInfo.whatsapp

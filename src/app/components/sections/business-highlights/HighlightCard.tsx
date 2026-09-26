@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { IconName, iconMap } from "../../../../lib/IconMap";
-
+import { Surface } from "../../ui/Surface";
+import { theme } from "../../../../lib/theme";
 type HighlightCardProps = {
   icon: IconName;
   title: string;
@@ -21,39 +22,62 @@ export function HighlightCard({
   const Icon = iconMap[icon];
 
   return (
-    <motion.article
+    <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -3 }}
-      className="group flex h-full flex-col gap-3 rounded-2xl border border-primary/10 bg-background/95 p-5 shadow-sm backdrop-blur-sm transition-all hover:border-primary/20 hover:shadow-md"
     >
-      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cream text-secondary transition-colors group-hover:bg-primary/10 group-hover:text-accent">
-        <Icon size={18} aria-hidden="true" />
-      </div>
-
-      <div className="flex-1">
-        <h3 className="font-display text-[0.95rem] font-semibold text-primary">
-          {title}
-        </h3>
-
-        <p className="mt-1 text-[0.8rem] leading-6 text-[#5E5148]">
-          {description}
-        </p>
-      </div>
-
-      {cta && href && (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-secondary transition-colors hover:text-accent"
+      <Surface variant="glass" className="flex h-full flex-col gap-3 p-5">
+        <div
+          className="flex h-9 w-9 items-center justify-center rounded-lg"
+          style={{ backgroundColor: theme.colors.cream }}
         >
-          {cta}
-          <span aria-hidden="true">→</span>
-        </a>
-      )}
-    </motion.article>
+          <Icon size={16} style={{ color: theme.colors.accentDark }} />
+        </div>
+
+        <div>
+          <h3
+            className="mb-1"
+            style={{
+              fontFamily: theme.typography.display,
+              fontSize: "0.92rem",
+              fontWeight: 600,
+              color: theme.colors.primary,
+            }}
+          >
+            {title}
+          </h3>
+
+          <p
+            style={{
+              fontFamily: theme.typography.body,
+              fontSize: "0.78rem",
+              color: theme.colors.secondary,
+              lineHeight: 1.65,
+            }}
+          >
+            {description}
+          </p>
+        </div>
+
+        {cta && href && (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto flex items-center gap-1 text-xs transition-opacity hover:opacity-70"
+            style={{
+              fontFamily: theme.typography.body,
+              fontWeight: 500,
+              color: theme.colors.accentDark,
+            }}
+          >
+            {cta}
+            <span style={{ fontSize: "0.85em" }}>→</span>
+          </a>
+        )}
+      </Surface>
+    </motion.div>
   );
 }
