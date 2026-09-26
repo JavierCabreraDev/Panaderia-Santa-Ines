@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://panaderiasantaines.cl/sitemap.xml
+
+# Bloquear archivos técnicos si aparecen en el futuro
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/

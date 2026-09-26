@@ -3,6 +3,13 @@ import { businessInfo } from "../../../content/data";
 export function BusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
+    image: "https://panaderiasantaines.cl/images/brand/og-santaines.png",
+
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -28.463,
+      longitude: -71.22,
+    },
     "@type": "Bakery",
 
     name: businessInfo.name,
