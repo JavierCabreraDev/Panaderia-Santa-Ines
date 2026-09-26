@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-
+import { memo } from "react";
 import { ImageWithFallback } from "../../figma/ImageWithFallback";
 import { ProductBadge } from "./ProductBadge";
 import type { ProductBadgeVariant } from "./ProductBadge";
@@ -19,14 +19,24 @@ type ProductCardProps = {
   delay?: number;
 };
 
-export function ProductCard({ product, waUrl, delay = 0 }: ProductCardProps) {
+export const ProductCard = memo(function ProductCard({
+  product,
+  waUrl,
+  delay = 0,
+}: ProductCardProps) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay }}
-      whileHover={{ y: -4 }}
+      whileHover={{
+        y: -6,
+        transition: {
+          duration: 0.25,
+          ease: "easeOut",
+        },
+      }}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-primary/10 bg-surface shadow-sm transition-all hover:border-primary/20 hover:shadow-xl"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -37,7 +47,7 @@ export function ProductCard({ product, waUrl, delay = 0 }: ProductCardProps) {
           height={450}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
 
         {product.badge && product.badgeColor && (
@@ -69,11 +79,13 @@ export function ProductCard({ product, waUrl, delay = 0 }: ProductCardProps) {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-medium text-cream transition-all hover:opacity-90 active:scale-95"
+          className="mt-auto flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-medium text-cream transition-all hover:opacity-90 active:scale-95 hover:shadow-md focus-visible:ring-2
+          focus-visible:ring-[#C99648]
+          focus-visible:ring-offset-2"
         >
-          Consultar por WhatsApp
+          Agregar +1
         </a>
       </div>
     </motion.article>
   );
-}
+});
