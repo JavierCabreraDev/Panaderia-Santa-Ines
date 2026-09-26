@@ -11,11 +11,14 @@ import { OrdersForBusiness } from "./components/sections/OrdersForBusiness";
 import { About } from "./components/sections/About";
 import { Location } from "./components/sections/Location";
 import { RenovationPreview } from "./components/sections/RenovationPreview";
+3;
+import { FAQSchema } from "./components/seo/FAQSchema";
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FFF8EC] font-sans">
       <BusinessSchema />
+      <FAQSchema />
       <Navbar />
 
       <main className="flex-1">
