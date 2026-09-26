@@ -44,7 +44,7 @@ export function HeroContent({ onPrimary }: HeroContentProps) {
 
       <div className="flex items-center gap-2 pt-2 text-xs text-secondary">
         <div className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
-        Encargos para familias, empresas y pymes · Despacho disponible
+        {hero.trustLine}
       </div>
     </motion.div>
   );

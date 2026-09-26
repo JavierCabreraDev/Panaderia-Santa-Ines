@@ -46,6 +46,7 @@ export interface HeroContent {
   primaryHref: `#${string}`;
   secondaryCTA: string;
   image: string;
+  trustLine: string;
 }
 
 /* ---------- Products ---------- */

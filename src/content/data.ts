@@ -1,5 +1,7 @@
 import { businessInfo } from "./business";
+import { hero } from "./hero";
 
+export { hero };
 export { businessInfo };
 export const schedule = {
   label: "Horario de atención",
@@ -47,18 +49,6 @@ export const navItems = [
   { label: "Renovación", href: "#renovacion" },
   { label: "Ubicación", href: "#ubicacion" },
 ];
-
-export const hero = {
-  eyebrow: "Panadería · Pastelería · Encargos",
-  title: "Santa Inés,\ntradición horneada\ncada día en Huasco",
-  subtitle:
-    "Pan fresco, pastelería tradicional, productos para la once y encargos para familias, empresas y pymes.",
-  primaryCTA: "Ver productos",
-  primaryHref: "#productos",
-  secondaryCTA: "Encargar por WhatsApp",
-  badges: ["Pan fresco", "Pastelería", "Encargos", "Despacho"],
-  image: "/images/products/all.png",
-};
 
 // ─── Servicios ────────────────────────────────────────────────
 // status: "active" | "comingSoon" | "hidden"
