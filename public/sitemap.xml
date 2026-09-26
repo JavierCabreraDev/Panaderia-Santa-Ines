@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://panaderiasantaines.cl/</loc>
+
+    <lastmod>2026-09-26</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>
+        https://panaderiasantaines.cl/images/brand/og-santaines.png
+      </image:loc>
+
+      <image:title>Panadería Santa Inés</image:title>
+
+      <image:caption>
+        Pan fresco y pastelería en Huasco.
+      </image:caption>
+    </image:image>
+  </url>
+</urlset>
