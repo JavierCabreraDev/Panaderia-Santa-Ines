@@ -1,9 +1,18 @@
 import { motion } from "motion/react";
+
 import { ImageWithFallback } from "../../figma/ImageWithFallback";
-import { ProductBadge } from "./ProductBadge";
+import { ProductBadge, ProductBadgeVariant } from "./ProductBadge";
 
 type ProductCardProps = {
-  product: any;
+  product: {
+    id: string;
+    name: string;
+    category: string;
+    description: string;
+    image: string;
+    badge?: string;
+    badgeColor?: ProductBadgeVariant;
+  };
   waUrl: string;
   delay?: number;
 };
@@ -18,7 +27,7 @@ export function ProductCard({ product, waUrl, delay = 0 }: ProductCardProps) {
       whileHover={{ y: -4 }}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-primary/10 bg-surface shadow-sm transition-all hover:border-primary/20 hover:shadow-xl"
     >
-      <div className="relative overflow-hidden aspect-[4/3]">
+      <div className="relative aspect-[4/3] overflow-hidden">
         <ImageWithFallback
           src={product.image}
           alt={`${product.name} de Panadería Santa Inés`}
@@ -29,7 +38,7 @@ export function ProductCard({ product, waUrl, delay = 0 }: ProductCardProps) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {product.badge && (
+        {product.badge && product.badgeColor && (
           <div className="absolute left-3 top-3">
             <ProductBadge label={product.badge} variant={product.badgeColor} />
           </div>
