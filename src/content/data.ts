@@ -1,17 +1,11 @@
 import { businessInfo } from "./business";
 import { hero } from "./hero";
 import { featuredProducts } from "./products";
-
+import { navItems } from "./navigation";
 export { featuredProducts };
 export { hero };
 export { businessInfo };
-export const schedule = {
-  label: "Horario de atención",
-  days: "Lunes a Sábado",
-  morning: "7:15 a.m. – 1:00 p.m.",
-  afternoon: "3:30 p.m. – 7:00 p.m.",
-  closed: "Domingos cerrado",
-};
+import { schedule } from "./schedule";
 export const businessHighlights = [
   {
     icon: "Truck",
@@ -43,15 +37,8 @@ export const businessHighlights = [
   },
 ] as const;
 
-export const navItems = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Productos", href: "#productos" },
-  { label: "Encargos", href: "#encargos" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Renovación", href: "#renovacion" },
-  { label: "Ubicación", href: "#ubicacion" },
-];
-
+export { navItems };
+export { schedule };
 // ─── Servicios ────────────────────────────────────────────────
 // status: "active" | "comingSoon" | "hidden"
 // Para activar cafetería: cambiar "comingSoon" → "active"
