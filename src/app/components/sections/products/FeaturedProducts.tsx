@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { Info } from "lucide-react";
-
+import { SectionHeader } from "../../ui/SectionHeader";
 import { featuredProducts, businessInfo } from "../../../../content/data";
 import { ProductCard } from "./ProductCard";
 import { buildWhatsAppUrl } from "../../../../lib/whatsapp";
@@ -33,30 +33,12 @@ export function FeaturedProducts() {
     <section id="productos" className="bg-[#FFF8EC] py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 flex flex-col gap-3"
-        >
-          <div className="flex items-center gap-2">
-            <div className="h-px w-6 bg-[#C99648]" />
-
-            <span className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#C99648]">
-              Nuestros productos
-            </span>
-          </div>
-
-          <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.4rem)] font-bold leading-tight text-[#2B211B]">
-            Pan fresco y pastelería
-          </h2>
-
-          <p className="max-w-xl text-[0.9rem] leading-7 text-[#5E5148]">
-            Consulta disponibilidad y realiza tu encargo directamente por
-            WhatsApp.
-          </p>
-        </motion.div>
+        <SectionHeader
+          className="mb-10"
+          eyebrow="Nuestros productos"
+          title="Pan fresco y pastelería"
+          description="Consulta disponibilidad y realiza tu encargo directamente por WhatsApp."
+        />
 
         {/* Availability pill */}
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#C99648]/20 bg-[#C99648]/10 px-4 py-2">
