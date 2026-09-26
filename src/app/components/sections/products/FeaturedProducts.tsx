@@ -7,6 +7,10 @@ import { ProductCard } from "./ProductCard";
 import { buildWhatsAppUrl } from "../../../../lib/whatsapp";
 import { cn } from "../../../../lib/cn";
 
+/**
+ * Temporalmente las categorías siguen viviendo aquí.
+ * En el Commit 12.6 migrarán definitivamente a products.ts.
+ */
 const CATEGORIES = [
   "Todos",
   ...Array.from(new Set(featuredProducts.map((p) => p.category))),
@@ -85,7 +89,7 @@ export function FeaturedProducts() {
           ))}
         </div>
 
-        {/* Products grid */}
+        {/* Products */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {filtered.map((product, index) => (
             <ProductCard
