@@ -13,6 +13,7 @@ export type ProductBadgeVariant =
 
 export interface BusinessInfo {
   name: string;
+  tagline: string;
   phone: string;
   whatsapp: string;
   address: string;
