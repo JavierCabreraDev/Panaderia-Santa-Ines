@@ -1,0 +1,102 @@
+# ==========================================================
+# Panadería Santa Inés
+# React + Vite + Apache (HostGator)
+# ==========================================================
+
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+DirectoryIndex index.html
+
+# ----------------------------------------------------------
+# Rewrites
+# ----------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# HTTPS + sin www
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.panaderiasantaines\.cl$ [NC]
+RewriteRule ^ https://panaderiasantaines.cl%{REQUEST_URI} [L,R=301,NE]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule . /index.html [L]
+</IfModule>
+
+# ----------------------------------------------------------
+# Compresión
+# ----------------------------------------------------------
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+AddOutputFilterByType DEFLATE text/javascript application/javascript
+AddOutputFilterByType DEFLATE application/json application/xml
+AddOutputFilterByType DEFLATE application/rss+xml image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------
+# Cache
+# ----------------------------------------------------------
+
+<IfModule mod_expires.c>
+ExpiresActive On
+
+ExpiresByType text/html "access plus 0 seconds"
+
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/avif "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ----------------------------------------------------------
+# Headers
+# ----------------------------------------------------------
+
+<IfModule mod_headers.c>
+
+Header append Vary Accept-Encoding
+
+<FilesMatch "\.(js|css|png|jpg|jpeg|webp|avif|svg|ico|woff|woff2)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+Header always set Strict-Transport-Security "max-age=31536000"
+
+<FilesMatch "\.svg$">
+Header set Content-Type "image/svg+xml"
+</FilesMatch>
+
+</IfModule>
+
+# ----------------------------------------------------------
+# Archivos sensibles
+# ----------------------------------------------------------
+
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|package\.json|package-lock\.json|pnpm-lock\.yaml|yarn\.lock|vite\.config\..*|tsconfig\..*|README\.md)$">
+Require all denied
+</FilesMatch>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# php -- END cPanel-generated handler
