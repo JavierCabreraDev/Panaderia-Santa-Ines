@@ -10,7 +10,7 @@ export const businessInfo: BusinessInfo = {
   phone: "(51) 253 1274",
   whatsapp: "56979893159",
   email: "contacto@panaderiasantaines.cl",
-  address: "Sgto. Aldea 408, Huasco, Atacama",
+  address: "Esquina Serrano con Sgto. Aldea 408, Huasco, Atacama",
   googleMapsUrl: "https://maps.app.goo.gl/wxVsMGPXKeKMvsZ36",
 
   openingHours: {

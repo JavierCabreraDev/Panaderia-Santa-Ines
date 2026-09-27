@@ -4,7 +4,18 @@ type HeroBadgeProps = {
 
 export function HeroBadge({ children }: HeroBadgeProps) {
   return (
-    <span className="rounded-full bg-primary/8 px-3 py-1 text-[0.72rem] font-medium tracking-[0.06em] text-[#5E5148]">
+    <span
+      className="
+    rounded-full
+    border
+    border-primary/15
+    bg-surface/70
+    backdrop-blur-sm
+    px-4
+    py-2
+    text-sm
+    "
+    >
       {children}
     </span>
   );

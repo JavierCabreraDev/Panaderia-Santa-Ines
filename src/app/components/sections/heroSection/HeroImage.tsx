@@ -5,26 +5,36 @@ import { ImageWithFallback } from "../../figma/ImageWithFallback";
 export function HeroImage() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.97 }}
+      initial={{ opacity: 0, scale: 0.97, y: 16 }}
       animate={{
         opacity: 1,
-        y: [0, -2, 0],
+        scale: 1,
+        y: [0, -6, 0],
       }}
       transition={{
-        opacity: {
-          duration: 0.6,
-          delay: 0.5,
-        },
+        opacity: { duration: 0.6 },
+        scale: { duration: 0.6 },
         y: {
-          duration: 3.5,
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
         },
       }}
-      className="relative"
+      className="group relative"
     >
+      {/* Halo cálido */}
       <div
-        className="relative overflow-hidden rounded-2xl shadow-[0_24px_64px_rgba(43,33,27,0.18)]"
+        className="absolute -inset-12 -z-10 blur-[80px]"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(201,150,72,.28) 0%, rgba(201,150,72,.08) 42%, transparent 78%)",
+        }}
+      />
+
+      {/* Imagen */}
+      <div
+        className="relative z-10 overflow-hidden rounded-[28px] shadow-[0_24px_64px_rgba(43,33,27,0.18)]"
         style={{ aspectRatio: "4/3" }}
       >
         <ImageWithFallback
@@ -32,24 +42,54 @@ export function HeroImage() {
           loading="eager"
           decoding="async"
           fetchPriority="high"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+          style={{
+            filter: "saturate(1.12) contrast(1.08) brightness(.98)",
+          }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
+        {/* Overlay cálido */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(43,33,27,.08) 0%, rgba(201,150,72,.05) 35%, transparent 80%)",
+          }}
+        />
       </div>
 
+      {/* Tarjeta flotante */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.6,
-          delay: 0.5,
+        animate={{
+          opacity: 1,
+          y: [0, -4, 0],
         }}
-        className="absolute -bottom-4 -left-4 rounded-xl border border-primary/10 bg-surface px-4 py-3 shadow-xl sm:-bottom-6 sm:-left-6"
+        transition={{
+          opacity: { duration: 0.6, delay: 0.5 },
+          y: {
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
+        className="absolute -bottom-5 left-5 z-20 rounded-2xl border border-primary/10 bg-surface/85 px-4 py-3 backdrop-blur-md shadow-[0_18px_40px_rgba(43,33,27,0.16)]"
       >
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-cream">
+          <motion.div
+            animate={{
+              rotate: [0, 2, -2, 0],
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-cream"
+          >
             🌾
-          </div>
+          </motion.div>
 
           <div>
             <div className="font-display text-sm font-semibold text-primary">
@@ -61,7 +101,19 @@ export function HeroImage() {
         </div>
       </motion.div>
 
-      <div className="absolute -right-3 -top-3 h-6 w-6 rounded-full bg-accent/35" />
+      {/* Detalle decorativo */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.35, 0.6, 0.35],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-3 -top-3 z-20 h-6 w-6 rounded-full bg-accent/35"
+      />
     </motion.div>
   );
 }

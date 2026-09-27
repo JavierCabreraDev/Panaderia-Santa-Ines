@@ -73,16 +73,6 @@ export const services = [
     image:
       "https://images.unsplash.com/photo-1568820780293-f33ebe8c49ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
   },
-  {
-    id: "cafeteria",
-    title: "Cafetería",
-    status: "active" as const,
-    description:
-      "Un rincón especial para acompañar tu pan o pastelería con un café express, al paso o con calma.",
-    icon: "Coffee",
-    image:
-      "https://images.unsplash.com/photo-1660203861072-318f2c468d94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
-  },
 ];
 
 // ─── Categorías ───────────────────────────────────────────────
@@ -142,14 +132,12 @@ export const categories = [
   },
 ];
 
-// ─── Productos destacados ─────────────────────────────────────
-
 // ─── Nosotros ─────────────────────────────────────────────────
 export const about = {
   title: "Una panadería con historia en Huasco",
   subtitle: "Tradición que se siente, frescura que se nota.",
   text: "Santa Inés es parte de la memoria cotidiana de Huasco. Clientes de distintas generaciones recuerdan su pan, convirtiéndola en una panadería reconocida por su sabor tradicional, frescura y cercanía.\n\nDesde hace décadas, Santa Inés forma parte de la mesa de muchas familias de Huasco. Más que vender pan, somos parte de desayunos, onces, celebraciones y rutinas compartidas. Hoy nos renovamos por fuera para seguir ofreciéndote la calidad de siempre por dentro.",
-  image: "/images/pos/2026-03-23.webp",
+  image: "/images/pos/panaderiaSantaInes.webp",
   pillars: [
     {
       icon: "MapPin",
@@ -251,19 +239,35 @@ export const ordersForBusiness = {
     { icon: "Package", label: "Volúmenes por encargo" },
   ],
 };
-
 // ─── Ubicación ────────────────────────────────────────────────
 export const location = {
-  title: "Encuéntranos en Huasco",
+  eyebrow: "Visítanos",
+  title: "Ven a buscarnos recién horneado",
+
+  description:
+    "Estamos en el centro de Huasco, en la esquina de Serrano con Sgto. Aldea. Pan horneado y atención de lunes a sábado.",
+
+  badge: "🥖 Pan recién horneado",
+
   address: "Sgto. Aldea 408, Huasco, Atacama",
+  reference: "Esquina de Serrano con Sgto. Aldea",
+
   phone: "(51) 253 1274",
   whatsapp: "+56 9 7989 3159",
+
   googleMapsUrl: "https://maps.app.goo.gl/wxVsMGPXKeKMvsZ36",
+
+  image: "/images/pos/panaderiaSantaInes.webp",
+
   directionsCta: "Cómo llegar",
+  whatsappCta: "Pedir por WhatsApp",
+  phoneCta: "Llamar",
+
   schedule: {
+    title: "Horario",
     days: "Lunes a Sábado",
-    morning: "7:15 a.m. – 1:00 p.m.",
-    afternoon: "3:30 p.m. – 7:00 p.m.",
+    morning: "07:15 – 13:00",
+    afternoon: "15:30 – 19:00",
     closed: "Domingos cerrado",
   },
 };

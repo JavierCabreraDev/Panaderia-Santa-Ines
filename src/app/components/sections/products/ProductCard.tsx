@@ -3,7 +3,6 @@ import { memo } from "react";
 import { ImageWithFallback } from "../../figma/ImageWithFallback";
 import { ProductBadge } from "./ProductBadge";
 import type { ProductBadgeVariant } from "./ProductBadge";
-import { Button } from "../../ui/button";
 import { theme } from "../../../../lib/theme";
 import type { FeaturedProduct } from "../../../../content/types";
 type ProductCardProps = {
@@ -14,7 +13,7 @@ type ProductCardProps = {
 
 export const ProductCard = memo(function ProductCard({
   product,
-  waUrl,
+
   delay = 0,
 }: ProductCardProps) {
   return (
@@ -70,12 +69,6 @@ export const ProductCard = memo(function ProductCard({
         >
           {product.description}
         </p>
-
-        <Button asChild className="mt-auto w-full rounded-xl">
-          <a href={waUrl} target="_blank" rel="noopener noreferrer">
-            Agregar +1
-          </a>
-        </Button>
       </div>
     </motion.article>
   );

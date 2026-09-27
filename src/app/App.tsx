@@ -5,13 +5,12 @@ import { BusinessSchema } from "./components/seo/BusinessSchema";
 import { Hero } from "./components/sections/heroSection/Hero";
 import { BusinessHighlights } from "./components/sections/business-highlights/BusinessHighlights";
 import { FeaturedProducts } from "./components/sections/products/FeaturedProducts";
-import { DailyFresh } from "./components/sections/DailyFresh";
+/*import { DailyFresh } from "./components/sections/DailyFresh";*/
 import { OrdersCTA } from "./components/sections/OrdersCTA";
 import { OrdersForBusiness } from "./components/sections/OrdersForBusiness";
 import { About } from "./components/sections/About";
 import { Location } from "./components/sections/Location";
-import { RenovationPreview } from "./components/sections/RenovationPreview";
-3;
+/*import { RenovationPreview } from "./components/sections/RenovationPreview";*/
 import { FAQSchema } from "./components/seo/FAQSchema";
 
 export default function App() {
@@ -24,13 +23,12 @@ export default function App() {
       <main className="flex-1">
         <Hero />
         <BusinessHighlights />
+        <Location />
+
         <FeaturedProducts />
-        <DailyFresh />
         <OrdersCTA />
         <OrdersForBusiness />
         <About />
-        <Location />
-        <RenovationPreview />
       </main>
 
       <Footer />

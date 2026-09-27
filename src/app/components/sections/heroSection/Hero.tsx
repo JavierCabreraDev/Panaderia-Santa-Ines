@@ -1,6 +1,10 @@
-import { HeroContent } from "../heroSection/HeroContent";
-import { HeroImage } from "../heroSection/HeroImage";
+import { HeroContent } from "./HeroContent";
+import { HeroImage } from "./HeroImage";
+import { HeroBackground } from "./HeroBackground";
+import { HeroContainer } from "./HeroContainer";
+import { smoothScrollTo } from "../../../../lib/scroll";
 
+<HeroContent onPrimary={() => smoothScrollTo("#productos")} />;
 export function Hero() {
   const handleScroll = (href: string) => {
     document.getElementById(href.slice(1))?.scrollIntoView({
@@ -11,15 +15,12 @@ export function Hero() {
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-background">
-      {/* overlay */}
+      <HeroBackground />
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+      <HeroContainer>
         <HeroContent onPrimary={() => handleScroll("#productos")} />
-
         <HeroImage />
-      </div>
-
-      {/* wave */}
+      </HeroContainer>
     </section>
   );
 }

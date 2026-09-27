@@ -16,7 +16,7 @@ export function Location() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-12"
         >
           <div className="flex items-center gap-2 mb-3">
             <div className="w-6 h-px" style={{ backgroundColor: "#C99648" }} />
@@ -30,286 +30,271 @@ export function Location() {
                 textTransform: "uppercase",
               }}
             >
-              Dónde estamos
+              {location.eyebrow}
             </span>
           </div>
+
           <h2
             style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
+              fontSize: "clamp(2rem,4vw,3rem)",
               fontWeight: 700,
               color: "#2B211B",
-              lineHeight: 1.2,
             }}
           >
             {location.title}
           </h2>
+
+          <p
+            className="mt-4 max-w-2xl"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              color: "#5E5148",
+              lineHeight: 1.8,
+            }}
+          >
+            {location.description}
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Map */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Columna izquierda */}
           <motion.div
+            className="lg:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
           >
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{
-                height: "380px",
-                border: "1px solid rgba(139,90,59,0.12)",
-                boxShadow: "0 4px 20px rgba(43,33,27,0.08)",
-                backgroundColor: "#F3E8D2",
-              }}
-            >
-              {/* Map placeholder with link */}
-              <div className="w-full h-full flex flex-col items-center justify-center gap-4 relative">
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238A5A3B' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
-                  }}
-                />
-                <div className="relative flex flex-col items-center gap-3">
-                  <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: "#2B211B" }}
-                  >
-                    <MapPin size={28} style={{ color: "#C99648" }} />
-                  </div>
-                  <div className="text-center">
-                    <p
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                        color: "#2B211B",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      {location.address}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: "0.82rem",
-                        color: "#5E5148",
-                      }}
-                    >
-                      Huasco, Región de Atacama
-                    </p>
-                  </div>
-                  <a
-                    href={location.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 rounded-full transition-all hover:opacity-90 active:scale-95"
-                    style={{
-                      backgroundColor: "#2B211B",
-                      color: "#F3E8D2",
-                      fontFamily: "'Inter', sans-serif",
-                      fontWeight: 500,
-                      fontSize: "0.85rem",
-                    }}
-                  >
-                    <Navigation size={14} />
-                    {location.directionsCta}
-                  </a>
-                  <a
-                    href={location.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs transition-opacity hover:opacity-70"
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      color: "#8A5A3B",
-                    }}
-                  >
-                    Ver en Google Maps →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            {/* Foto */}
+            <div className="relative rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src={location.image}
+                alt="Panadería Santa Inés"
+                className="w-full h-[380px] object-cover"
+              />
 
-          {/* Info cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col gap-4"
-          >
-            {/* Schedule */}
-            <div
-              className="p-5 rounded-2xl flex flex-col gap-3"
-              style={{
-                backgroundColor: "#FFFCF7",
-                border: "1px solid rgba(139,90,59,0.1)",
-              }}
-            >
-              <div className="flex items-center gap-2.5">
-                <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: "#F3E8D2" }}
-                >
-                  <Clock size={14} style={{ color: "#8A5A3B" }} />
-                </div>
-                <h3
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2B211B]/75 via-transparent to-transparent" />
+
+              <div className="absolute bottom-6 left-6 right-6">
+                <span
+                  className="inline-flex items-center px-4 py-2 rounded-full"
                   style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: "0.92rem",
+                    background: "rgba(255,252,247,.9)",
+                    fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
                     color: "#2B211B",
                   }}
                 >
-                  Horario
+                  {location.badge}
+                </span>
+
+                <h3
+                  className="mt-4 text-white"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "2rem",
+                    fontWeight: 700,
+                  }}
+                >
+                  {location.reference}
                 </h3>
               </div>
+            </div>
+
+            {/* Google Maps */}
+            <div
+              className="mt-6 rounded-3xl overflow-hidden border"
+              style={{
+                borderColor: "rgba(139,90,59,.12)",
+              }}
+            >
+              <iframe
+                title="Mapa Panadería Santa Inés"
+                src="https://www.google.com/maps?q=Panadería+Santa+Inés+Huasco&output=embed"
+                width="100%"
+                height="320"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ border: 0 }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Panel derecho */}
+          <motion.div
+            className="flex flex-col gap-4"
+            initial={{ opacity: 0, x: 16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href={location.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-lg"
+              style={{
+                backgroundColor: "#2B211B",
+                color: "#F8F3E9",
+              }}
+            >
+              <Navigation size={20} />
+              <div className="mt-3">
+                <p
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontWeight: 600,
+                    fontSize: "1.1rem",
+                  }}
+                >
+                  {location.directionsCta}
+                </p>
+
+                <p
+                  className="mt-2"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    color: "rgba(248,243,233,.8)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {location.address}
+                </p>
+
+                <p
+                  className="mt-1 text-sm"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    color: "#C99648",
+                  }}
+                >
+                  {location.reference}
+                </p>
+              </div>
+            </a>
+
+            <div
+              className="rounded-2xl p-5 border"
+              style={{
+                backgroundColor: "#FFFCF7",
+                borderColor: "rgba(139,90,59,.12)",
+              }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: "#F3E8D2" }}
+                >
+                  <Clock size={18} style={{ color: "#8A5A3B" }} />
+                </div>
+
+                <h3
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontWeight: 600,
+                    color: "#2B211B",
+                  }}
+                >
+                  {location.schedule.title}
+                </h3>
+              </div>
+
               <div
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.8rem",
                   color: "#5E5148",
-                  lineHeight: 1.8,
+                  lineHeight: 1.9,
                 }}
               >
-                <div style={{ fontWeight: 500, color: "#2B211B" }}>
+                <div className="font-semibold text-[#2B211B]">
                   {location.schedule.days}
                 </div>
+
                 <div>{location.schedule.morning}</div>
                 <div>{location.schedule.afternoon}</div>
-                <div className="mt-1.5 text-xs" style={{ color: "#8A5A3B" }}>
+
+                <div className="text-sm mt-2 text-[#8A5A3B]">
                   {location.schedule.closed}
                 </div>
               </div>
             </div>
 
-            {/* Phone */}
             <a
-              href={`tel:${location.phone}`}
-              className="p-5 rounded-2xl flex items-center gap-3 transition-all hover:opacity-80"
+              href={`tel:${location.phone.replace(/\s/g, "")}`}
+              className="rounded-2xl p-5 border transition-all hover:-translate-y-1"
               style={{
                 backgroundColor: "#FFFCF7",
-                border: "1px solid rgba(139,90,59,0.1)",
+                borderColor: "rgba(139,90,59,.12)",
               }}
             >
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: "#F3E8D2" }}
-              >
-                <Phone size={14} style={{ color: "#8A5A3B" }} />
-              </div>
-              <div>
+              <div className="flex items-center gap-3">
                 <div
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.68rem",
-                    color: "#8A5A3B",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    marginBottom: "2px",
-                  }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: "#F3E8D2" }}
                 >
-                  Teléfono
+                  <Phone size={18} style={{ color: "#8A5A3B" }} />
                 </div>
-                <div
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: "0.9rem",
-                    fontWeight: 600,
-                    color: "#2B211B",
-                  }}
-                >
-                  {location.phone}
+
+                <div>
+                  <p
+                    style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontWeight: 600,
+                      color: "#2B211B",
+                    }}
+                  >
+                    {location.phoneCta}
+                  </p>
+
+                  <p
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      color: "#5E5148",
+                    }}
+                  >
+                    {location.phone}
+                  </p>
                 </div>
               </div>
             </a>
 
-            {/* Address */}
             <div
-              className="p-5 rounded-2xl flex items-center gap-3"
+              className="rounded-2xl p-5 border"
               style={{
                 backgroundColor: "#FFFCF7",
-                border: "1px solid rgba(139,90,59,0.1)",
+                borderColor: "rgba(139,90,59,.12)",
               }}
             >
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                style={{ backgroundColor: "#F3E8D2" }}
-              >
-                <MapPin size={14} style={{ color: "#8A5A3B" }} />
-              </div>
-              <div>
+              <div className="flex items-start gap-3">
                 <div
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.68rem",
-                    color: "#8A5A3B",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    marginBottom: "2px",
-                  }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: "#F3E8D2" }}
                 >
-                  Dirección
+                  <MapPin size={18} style={{ color: "#8A5A3B" }} />
                 </div>
-                <div
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: "0.88rem",
-                    fontWeight: 600,
-                    color: "#2B211B",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {location.address}
+
+                <div>
+                  <p
+                    style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontWeight: 600,
+                      color: "#2B211B",
+                    }}
+                  >
+                    {location.address}
+                  </p>
+
+                  <p
+                    className="mt-1"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      color: "#8A5A3B",
+                    }}
+                  >
+                    {location.reference}
+                  </p>
                 </div>
               </div>
             </div>
-
-            {/* WhatsApp
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-5 rounded-2xl flex items-center gap-3 transition-all hover:opacity-90"
-              style={{
-                backgroundColor: "#25D366",
-              }}
-            >
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
-              >
-                <MessageCircle size={14} style={{ color: "#fff" }} />
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.68rem",
-                    color: "rgba(255,255,255,0.75)",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    marginBottom: "2px",
-                  }}
-                >
-                  WhatsApp
-                </div>
-                <div
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: "0.88rem",
-                    fontWeight: 600,
-                    color: "#fff",
-                  }}
-                >
-                  Consultar ahora
-                </div>
-              </div>
-            </a>  */}
           </motion.div>
         </div>
       </div>
